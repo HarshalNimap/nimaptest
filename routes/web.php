@@ -27,4 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('category/getlist','CategoryController@getCategoryList')->name('category.getlist');
     Route::get('product/getlist','ProductController@getProductList')->name('product.getlist');
     Route::get('alldetails','AllDetails@alldetails')->name('all.getlist');
+	Route::get('/logout', function(){
+	   Auth::logout();
+	   return Redirect::to('login');
+	});
 });
